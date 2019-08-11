@@ -40,7 +40,7 @@ class CLI
 
         Scraper.scrape_pet_info(pet)
         puts
-        puts "You chose #{pet.name}! Here's what we know:".green
+        puts "You chose #{pet.name}! Here's some information:".green
         puts
         puts "Breed: #{pet.breed}".green
         puts "Color: #{pet.color}".green
