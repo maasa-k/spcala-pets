@@ -1,24 +1,41 @@
 class CLI
 
     def call
-        
-        puts ""
-        puts "Welcome, Animal Lover! The Society for the Prevention of Cruelty to Animals Los Angeles (spcaLA) has tons of furry friends who can't wait to be taken into a loving home.  Come check them out!"
 
+        puts ""
+        puts "Welcome, animal lover! Friendly furry friends await you and can't wait to be taken into a loving home.  Come check them out!"
+        puts ""
+
+        input = ""
+        until input == "exit"
+            
+            puts "Please enter 'list pets' to list who is adoptable."
+            
+            puts "To leave, please type 'exit'."
+
+        input = gets.chomp
+        
+        case input 
+            when "list pets"
+                list_pets
+                select_pet
+            end
+        end
+    end
+
+    def list_pets
         Scraper.scrape_pets
 
         Pet.all.each.with_index(1) do |pet, index|
             puts "#{index}. #{pet.id}"
         end
-
-        select_pet
     end
 
     def select_pet
         puts ""
-        puts "Please select the number to the left of the pet you want to check out:"
+        puts "Please enter the number to the left of the potential adoptee you would consider:"
 
-        input = gets.strip
+        input = gets.chomp
 
         pet = Pet.all[input.to_i - 1]
 
@@ -30,7 +47,9 @@ class CLI
         puts "Color: #{pet.color}"
         puts "Gender: #{pet.gender}"
         puts ""
-        puts "#{pet.name} can be picked up in #{pet.location}."
-        select_pet
+        puts "You can visit #{pet.name} in #{pet.location}!"
+        puts ""
+        puts ""
+        
     end
 end 
