@@ -8,9 +8,8 @@ class CLI
 
         input = ""
         until input == "exit"
-            
-            puts "Please enter 'list pets' to list who is adoptable."
-            
+                   
+            puts "Please enter 'list pets' to see who is adoptable."
             puts "To leave, please type 'exit'."
 
         input = gets.chomp
@@ -49,7 +48,5 @@ class CLI
         puts ""
         puts "You can visit #{pet.name} in #{pet.location}!"
         puts ""
-        puts ""
-        
     end
 end 
