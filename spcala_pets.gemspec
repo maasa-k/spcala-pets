@@ -1,9 +1,9 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "spca_events/version"
+require "spcala_pets/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "spca_events"
+  spec.name          = "spcala_pets"
   spec.version       = SpcaEvents::VERSION
   spec.authors       = ["Maasa"]
   spec.email         = ["konomaasa@gmail.com"]
