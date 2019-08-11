@@ -12,11 +12,11 @@ class CLI
         doc.css("#adoptList ul li h4")[2..184].each do |pet|        
             name = pet.text
             
-            pet = Pet.new(name)
+            Pet.new(name)
         end
 
-        pet_names.each.with_index(1) do |name, index|
-            puts "#{index}. #{name}"
+        Pet.all.each.with_index(1) do |pet, index|
+            puts "#{index}. #{pet.name}"
         end
     end
 end 
