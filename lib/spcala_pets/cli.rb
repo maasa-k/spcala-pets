@@ -2,9 +2,9 @@ class CLI
 
     def call
 
-        puts ""
+        puts 
         puts "Welcome, animal lover! Friendly furry friends await you and can't wait to be taken into a loving home.  Come check them out!".green 
-        puts ""
+        puts
 
         Scraper.scrape_pets
 
@@ -31,7 +31,7 @@ class CLI
     end
 
     def select_pet
-        puts ""
+        puts
         puts "Please enter the number to the left of the potential adoptee you would consider:".blue
 
         input = gets.chomp
@@ -39,15 +39,15 @@ class CLI
         pet = Pet.all[input.to_i - 1]
 
         Scraper.scrape_pet_info(pet)
-        puts ""
+        puts
         puts "You chose #{pet.name}! Here's what we know:".green
-        puts ""
+        puts
         puts "Breed: #{pet.breed}".green
         puts "Color: #{pet.color}".green
         puts "Gender: #{pet.gender}".green
-        puts ""
+        puts
         puts "You can visit #{pet.name} in #{pet.location}!".green
-        puts ""
+        puts
         end
     end
 end 
