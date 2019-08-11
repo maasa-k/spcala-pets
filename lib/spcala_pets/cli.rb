@@ -8,7 +8,7 @@ class CLI
         Scraper.scrape_pets
 
         Pet.all.each.with_index(1) do |pet, index|
-            puts "#{index}. #{pet.name}"
+            puts "#{index}. #{pet.id}"
         end
 
         select_pet
@@ -20,8 +20,17 @@ class CLI
 
         input = gets.strip
 
-        pet = Pet.all[input.to_i -1]
+        pet = Pet.all[input.to_i - 1]
 
         Scraper.scrape_pet_info(pet)
+        puts ""
+        puts "You chose #{pet.name}! Here's what we know:"
+        puts ""
+        puts "Breed: #{pet.breed}"
+        puts "Color: #{pet.color}"
+        puts "Gender: #{pet.gender}"
+        puts ""
+        puts "#{pet.name} can be picked up in #{pet.location}."
+        select_pet
     end
 end 

@@ -1,10 +1,10 @@
 class Pet
-    attr_accessor :name, :url
+    attr_accessor :id, :url, :name, :breed, :color, :gender, :location
 
     @@all = []
 
-    def initialize(name, url)
-        @name = name
+    def initialize(id, url)
+        @id = id
         @url = url
         @@all << self
     end
