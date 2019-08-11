@@ -3,7 +3,7 @@ class CLI
     def call
 
         puts ""
-        puts "Welcome, animal lover! Friendly furry friends await you and can't wait to be taken into a loving home.  Come check them out!".green
+        puts "Welcome, animal lover! Friendly furry friends await you and can't wait to be taken into a loving home.  Come check them out!".green 
         puts ""
 
         Scraper.scrape_pets
@@ -11,7 +11,7 @@ class CLI
         input = ""
         until input == "exit"
                    
-            puts "Please enter 'list pets' to see who is adoptable.".green
+            puts "Please enter 'list pets' to see who is adoptable.".blue
             puts "To leave, please type 'exit'.".red
 
         input = gets.chomp
@@ -27,13 +27,12 @@ class CLI
     def list_pets
 
         Pet.all.each.with_index(1) do |pet, index|
-            puts "#{index}. #{pet.id}"
-        end
+            puts "#{index}. #{pet.id}".light_blue
     end
 
     def select_pet
         puts ""
-        puts "Please enter the number to the left of the potential adoptee you would consider:"
+        puts "Please enter the number to the left of the potential adoptee you would consider:".blue
 
         input = gets.chomp
 
@@ -41,13 +40,14 @@ class CLI
 
         Scraper.scrape_pet_info(pet)
         puts ""
-        puts "You chose #{pet.name}! Here's what we know:"
+        puts "You chose #{pet.name}! Here's what we know:".green
         puts ""
-        puts "Breed: #{pet.breed}"
-        puts "Color: #{pet.color}"
-        puts "Gender: #{pet.gender}"
+        puts "Breed: #{pet.breed}".green
+        puts "Color: #{pet.color}".green
+        puts "Gender: #{pet.gender}".green
         puts ""
-        puts "You can visit #{pet.name} in #{pet.location}!"
+        puts "You can visit #{pet.name} in #{pet.location}!".green
         puts ""
+        end
     end
 end 
