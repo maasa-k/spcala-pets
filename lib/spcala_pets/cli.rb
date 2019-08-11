@@ -3,14 +3,16 @@ class CLI
     def call
 
         puts ""
-        puts "Welcome, animal lover! Friendly furry friends await you and can't wait to be taken into a loving home.  Come check them out!"
+        puts "Welcome, animal lover! Friendly furry friends await you and can't wait to be taken into a loving home.  Come check them out!".green
         puts ""
+
+        Scraper.scrape_pets
 
         input = ""
         until input == "exit"
                    
-            puts "Please enter 'list pets' to see who is adoptable."
-            puts "To leave, please type 'exit'."
+            puts "Please enter 'list pets' to see who is adoptable.".green
+            puts "To leave, please type 'exit'.".red
 
         input = gets.chomp
         
@@ -23,7 +25,6 @@ class CLI
     end
 
     def list_pets
-        Scraper.scrape_pets
 
         Pet.all.each.with_index(1) do |pet, index|
             puts "#{index}. #{pet.id}"
