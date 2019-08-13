@@ -1,5 +1,5 @@
 class Pet
-    attr_accessor :id, :url, :name, :breed, :color, :gender, :location
+    attr_accessor :id, :url, :name, :breed, :color, :gender, :location, :scraped
 
     @@all = []
 

@@ -7,7 +7,7 @@ class Scraper
 
         doc = Nokogiri::HTML(html)
 
-        doc.css("#adoptList ul li")[2..184].each do |pet| 
+        doc.css("#adoptList ul li").each do |pet| 
             id = pet.css("h4").text
             url = pet.css("a").attr("href").value
             Pet.new(id, url)
@@ -15,6 +15,7 @@ class Scraper
     end
 
     def self.scrape_pet_info(pet)
+        pet.scraped = true
         html = open(PETS_URL + pet.url)
         doc = Nokogiri::HTML(html)
         pet.name = doc.css(".spcala-pet_name").text

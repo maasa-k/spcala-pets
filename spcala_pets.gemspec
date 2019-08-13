@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["konomaasa@gmail.com"]
 
   spec.summary       = %q{Provide list of adoptable pets at spcaLA with some information.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/maasa333/spcala-pets"
   spec.license       = "MIT"
 
   spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "pry"
   spec.add_dependency "nokogiri"
+  spec.add_dependency "colorize"
 end

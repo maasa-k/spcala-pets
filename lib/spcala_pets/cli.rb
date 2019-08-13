@@ -8,15 +8,17 @@ class CLI
 
         Scraper.scrape_pets
 
-        input = ""
-        until input == "exit"
+        @input = ""
+        until @input == "exit"
                    
             puts "Please enter 'list pets' to see who is adoptable.".blue
             puts "To leave, please type 'exit'.".red
+            puts 
 
-        input = gets.chomp
-        
-        case input 
+            @input = gets.chomp
+            puts ""
+
+            case @input 
             when "list pets"
                 list_pets
                 select_pet
@@ -28,26 +30,31 @@ class CLI
 
         Pet.all.each.with_index(1) do |pet, index|
             puts "#{index}. #{pet.id}".light_blue
+        end
     end
 
     def select_pet
         puts
         puts "Please enter the number to the left of the potential adoptee you would consider:".blue
+        puts
 
-        input = gets.chomp
+        @input = gets.chomp.downcase
 
-        pet = Pet.all[input.to_i - 1]
+        unless @input == "exit"
 
-        Scraper.scrape_pet_info(pet)
-        puts
-        puts "You chose #{pet.name}! Here's some information:".green
-        puts
-        puts "Breed: #{pet.breed}".green
-        puts "Color: #{pet.color}".green
-        puts "Gender: #{pet.gender}".green
-        puts
-        puts "You can visit #{pet.name} in #{pet.location}!".green
-        puts
+            pet = Pet.all[@input.to_i - 1]
+
+            Scraper.scrape_pet_info(pet) unless pet.scraped
+
+            puts
+            puts "You chose #{pet.name}! Here's some information:".green
+            puts
+            puts "Breed: #{pet.breed}".green
+            puts "Color: #{pet.color}".green
+            puts "Gender: #{pet.gender}".green
+            puts
+            puts "You can visit #{pet.name} in #{pet.location}!".green
+            puts
         end
     end
 end 
