@@ -1,6 +1,8 @@
+<img src="https://images.unsplash.com/photo-1558618047-f4b511aae74d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" width=70%>
+
 # spcaLA Pets
 
-Society for the Prevention of Cruelty to Animals Los Angeles (spcaLA) is working hard to make sure our fellow furry friends find loving homes!  Please use this Gem to see the adoptable pets.
+Society for the Prevention of Cruelty to Animals Los Angeles (spcaLA) is working hard to make sure our fellow furry friends find loving homes!  Use this Gem to see the adoptable pets.
 
 ## Installation
 
@@ -20,7 +22,15 @@ Or install it yourself as:
 
 ## Usage
 
-Use this CLI Gem to see the adoptable pets at spcaLA. 
+Use this CLI Gem to see the adoptable pets through spcaLA. 
+
+Run the following in the terminal to get started:
+
+```ruby
+$ ruby bin/spcala-pets
+```
+
+You will then be prompted to view a list of pets available for adoption.  Enter the number to the left of the pet's name to see their breed, color, gender and location. 
 
 ## Development
 
