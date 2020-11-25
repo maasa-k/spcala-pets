@@ -6,36 +6,30 @@ class CLI
         puts "Welcome, animal lover! Friendly furry friends await you and can't wait to be taken into a loving home.  Come check them out!".green 
         puts
 
-        # Scraper.scrape_pets
-
-        @input = ""
-        until @input == "exit"
+        input = ""
+        until input == "exit"
                 
             puts "What type of pet are you looking for?  Please enter 'dogs', 'cats', or 'other'.".blue
-            # puts "Please enter 'list pets' to see who is adoptable.".blue
             puts "To leave, please type 'exit'.".red
             puts 
 
-            @input = gets.chomp
+            input = gets.chomp
             puts ""
 
-            case @input 
-            when "dogs"
-                Scraper.scrape_dogs
-                list_pets
-                select_pet
-            when "cats"
-                Scraper.scrape_cats
-                list_pets
-                select_pet
-            # when "other"
-            #     list_other
-            #     select_pet
+            case input 
+                when "dogs"
+                    Scraper.scrape_dogs
+                    list_pets
+                    select_pet
+                when "cats"
+                    Scraper.scrape_cats
+                    list_pets
+                    select_pet
+                when "other"
+                    Scraper.scrape_others
+                    list_pets
+                    select_pet
             end
-            # when "list pets"
-            #     list_pets
-            #     select_pet
-            # end
         end
     end
 
@@ -56,9 +50,7 @@ class CLI
 
             pet = Pet.all[@input.to_i - 1]
 
-            Scraper.scrape_pet_info(pet) unless pet.scraped
-            Scraper.scrape_pet_info(pet) unless pet.scraped
-            # Scraper.scrape_pet_info(pet) unless pet.scraped
+            Scraper.scrape_pet_info(pet)
 
             puts
             puts "You chose #{pet.name}! Here's some information:".green
@@ -70,5 +62,6 @@ class CLI
             puts "You can visit #{pet.name} in #{pet.location}!".green
             puts
         end
+        Pet.all.clear
     end
 end 
