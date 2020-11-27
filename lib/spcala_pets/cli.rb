@@ -18,19 +18,37 @@ class CLI
 
             case input 
                 when "dogs"
+                    dog_img
                     Scraper.scrape_dogs
                     list_pets
                     select_pet
                 when "cats"
+                    cat_img
                     Scraper.scrape_cats
                     list_pets
                     select_pet
                 when "other"
+                    other_img
                     Scraper.scrape_others
                     list_pets
                     select_pet
             end
         end
+    end
+
+    def dog_img
+        puts "▼・ᴥ・▼".yellow
+        puts
+    end
+
+    def cat_img
+        puts "ก₍⸍⸌̣ʷ̣̫⸍̣⸌₎ค".yellow
+        puts
+    end
+
+    def other_img
+        puts "(´･ω･`)?".yellow
+        puts
     end
 
     def list_pets
