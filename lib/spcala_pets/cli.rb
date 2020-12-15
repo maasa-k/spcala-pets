@@ -21,17 +21,14 @@ class CLI
                     dog_img
                     Scraper.scrape_dogs
                     list_pets
-                    select_pet
                 when "cats"
                     cat_img
                     Scraper.scrape_cats
                     list_pets
-                    select_pet
                 when "other"
                     other_img
                     Scraper.scrape_others
                     list_pets
-                    select_pet
             end
         end
     end
@@ -52,8 +49,14 @@ class CLI
     end
 
     def list_pets
-        Pet.all.each.with_index(1) do |pet, index|
-            puts "#{index}. #{pet.id}".light_blue
+        if Pet.all.length == 0
+            puts "These guys all found a home!  Please check out the other animals.".yellow
+            puts
+        else
+            Pet.all.each.with_index(1) do |pet, index|
+                puts "#{index}. #{pet.id}".light_blue
+            end
+            select_pet
         end
     end
 
